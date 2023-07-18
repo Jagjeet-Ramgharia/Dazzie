@@ -9,6 +9,8 @@ import orderpackage from "@/assets/Images/Package.svg";
 import coupon from "@/assets/Images/Coupon Discount.svg";
 import user from "@/assets/Images/user.svg";
 import settings from "@/assets/Images/seettings.svg";
+import filter from "@/assets/Images/filter.svg";
+import more from "@/assets/Images/threedots.svg";
 
 type icons = {
   icon: string;
@@ -55,6 +57,12 @@ const IconComponent = ({ icon, color, size, style }: icons) => {
         return (
           <Image src={settings.src} width={27} height={20} alt="menu_link" />
         );
+      case "filter":
+        return (
+          <Image src={filter.src} width={27} height={27} alt="menu_link" />
+        );
+      case "more":
+        return <Image src={more.src} width={27} height={27} alt="menu_link" />;
       default:
         return (
           <div
