@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './variables';
+
+
+// ----------------------------------- Utilities ----------------------------------------------
+
+.layout_children{
+    background-color:$theme-whiteSmoke;
+    padding: 35px;
+}
+
+.wrapper{
+    background-color: $theme-white;
+    border-radius: 8px;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.avatar{
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: $theme-sec-gray;
+}
+
+// --------------------------------------------------------------------------------------------

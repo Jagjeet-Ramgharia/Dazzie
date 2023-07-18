@@ -1,0 +1,54 @@
+@import "../../app/variables";
+
+// ------------------------------------------------ Header Styles ------------------------------------------
+.header {
+  background-color: $theme-white;
+  border-bottom: 1px solid $theme-separator;
+  .theme_logo {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 10px;
+    background-color: $theme-sec-gray;
+  }
+}
+// --------------------------------------------------------------------------------------------------------
+
+// --------------------------------------------- Sidebar Styles -------------------------------------------
+
+.sidebar {
+  width: 112px;
+  height: 100%;
+  background-color: $theme-white;
+  border-right: 1px solid $theme-separator;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu_item {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu_active {
+    background-color: $theme-blue;
+  }
+}
+
+// --------------------------------------------------------------------------------------------------------
