@@ -91,7 +91,12 @@ function page() {
       style: {
         justifyContent: "flex-start",
       },
-      selector: (row: row) => row.purchasedItem,
+      selector: (row: row) => (
+        <div className="flex flex-col gap-3">
+          <div>{row.purchasedItem}</div>
+          <div className="text-[#5541d7] font-semibold">See details</div>
+        </div>
+      ),
     },
     {
       name: "Total Spend",

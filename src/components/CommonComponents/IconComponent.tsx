@@ -11,6 +11,8 @@ import user from "@/assets/Images/user.svg";
 import settings from "@/assets/Images/seettings.svg";
 import filter from "@/assets/Images/filter.svg";
 import more from "@/assets/Images/threedots.svg";
+import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import { BsChevronDown } from "react-icons/bs";
 
 type icons = {
   icon: string;
@@ -26,8 +28,14 @@ const IconComponent = ({ icon, color, size, style }: icons) => {
     switch (icon) {
       case "home":
         return <FaHome color={color} size={size} style={style} />;
+      case "up":
+        return <AiOutlineArrowUp color={color} size={size} style={style} />;
+      case "down":
+        return <AiOutlineArrowDown color={color} size={size} style={style} />;
       case "forward":
         return <IoIosArrowForward color={color} size={size} style={style} />;
+      case "downward":
+        return <BsChevronDown color={color} size={size} style={style} />;
       case "food":
         return <Image src={food.src} width={27} height={27} alt="menu_link" />;
       case "latest-order":

@@ -76,6 +76,11 @@ function CustomTable({
             height: "112px !important",
           },
         },
+        cells: {
+          style: {
+            color: "#11142D",
+          },
+        },
       }}
     />
   );

@@ -1,32 +1,85 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './variables';
-
+@import "./variables";
 
 // ----------------------------------- Utilities ----------------------------------------------
 
-.layout_children{
-    background-color:$theme-whiteSmoke;
-    padding: 35px;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.wrapper{
-    background-color: $theme-white;
-    border-radius: 8px;
-    width: 100%;
-    min-height: 100vh;
+::-webkit-scrollbar-track {
+  background-color: $theme-gray;
+  border-radius: 10px;
 }
 
-.avatar{
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
-    background-color: $theme-sec-gray;
+::-webkit-scrollbar-thumb {
+  background-color: $theme-blue;
+  outline: none;
+  border-radius: 10px;
 }
 
-.rdt_Pagination{
-    border: none !important;
+.layout_children {
+  background-color: $theme-whiteSmoke;
+  padding: 35px;
+  min-height: 100vh;
+}
+
+.wrapper {
+  background-color: $theme-white;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background-color: $theme-sec-gray;
+}
+
+.rdt_Pagination {
+  border: none !important;
+}
+.card_box {
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.5);
+}
+
+span {
+  color: $theme-text-black;
+}
+
+.select_box {
+  min-width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid $theme-blue;
+  border-radius: 12px;
+  padding: 10px;
+  color: $theme-blue !important;
+  font-weight: bolder;
+}
+
+.img {
+  height: 50px;
+  width: 50px;
+  background-color: $theme-gray;
+  border-radius: 8px;
+}
+
+.btn {
+  background-color: $theme-blue;
+  color: $theme-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 // --------------------------------------------------------------------------------------------
