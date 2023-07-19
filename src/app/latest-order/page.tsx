@@ -2,7 +2,8 @@
 import CustomTable from "@/components/CommonComponents/CustomTable.tsx/CustomTable";
 import DataCard from "@/components/CommonComponents/DataCard";
 import IconComponent from "@/components/CommonComponents/IconComponent";
-import React from "react";
+import Loader from "@/components/CommonComponents/Loader";
+import React, { useEffect, useState } from "react";
 
 const data = [
   {
@@ -147,7 +148,15 @@ const itemSold = [
   },
 ];
 
-function page() {
+function LatestOrder() {
+  const [isLoading, setIsloading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsloading(false);
+    }, 3000);
+  }, []);
+
   // ------------------------------------ Columns -----------------------------------------
 
   type row = {
@@ -202,6 +211,10 @@ function page() {
   ];
 
   // --------------------------------------------------------------------------------------
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="w-full h-full p-3 min-h-screen">
@@ -272,4 +285,4 @@ function page() {
   );
 }
 
-export default page;
+export default LatestOrder;

@@ -1,10 +1,10 @@
 "use client";
-import Card from "@/components/CommonComponents/Card.tsx/Card";
+import Loader from "@/components/CommonComponents/Loader";
 import NavigateTabs from "@/components/CommonComponents/NavigationTabs";
 import TableTopSearchBar from "@/components/CommonComponents/SearchBar";
 import TabPanel from "@/components/CommonComponents/TabPanel";
 import AllFood from "@/components/ViewsComponent/food/AllFood";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const tabs = [
   {
@@ -35,16 +35,29 @@ const tabs = [
 ];
 
 function Food() {
+  const [isLoading, setIsloading] = useState(true);
   const [value, setValue] = useState<any>("all");
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsloading(false);
+    }, 3000);
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="w-full h-full p-3">
       <div className="wrapper">
         <div className="w-full p-[2.5rem]">
           <TableTopSearchBar
             placeholder={"Search here..."}
-            value={""}
-            onChange={function (event: React.ChangeEvent<Element>): void {
-              throw new Error("Function not implemented.");
+            value={search}
+            onChange={function (event: React.ChangeEvent<HTMLInputElement>) {
+              setSearch(event.target.value);
             }}
           />
         </div>

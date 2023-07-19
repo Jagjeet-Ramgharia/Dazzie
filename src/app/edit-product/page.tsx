@@ -1,8 +1,18 @@
+"use client";
 import InputField from "@/components/CommonComponents/InputField";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./editproduct.module.scss";
+import Loader from "@/components/CommonComponents/Loader";
 
-function page() {
+function EditProduct() {
+  const [isLoading, setIsloading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsloading(false);
+    }, 3000);
+  }, []);
+
   const formFields = [
     {
       id: 1,
@@ -51,6 +61,10 @@ function page() {
     },
   ];
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="w-full h-full p-3">
       <span className="text-2xl">Edit Product</span>
@@ -91,4 +105,4 @@ function page() {
   );
 }
 
-export default page;
+export default EditProduct;

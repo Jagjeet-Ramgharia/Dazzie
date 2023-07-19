@@ -1,9 +1,11 @@
 "use client";
 import CustomTable from "@/components/CommonComponents/CustomTable.tsx/CustomTable";
 import IconComponent from "@/components/CommonComponents/IconComponent";
+import Loader from "@/components/CommonComponents/Loader";
 import TableTopSearchBar from "@/components/CommonComponents/SearchBar";
 import CustomSwitch from "@/components/CommonComponents/Switch/Switch";
-import React from "react";
+import { CircularProgress } from "@mui/material";
+import React, { useEffect, useState } from "react";
 
 const data = [
   {
@@ -72,7 +74,9 @@ const data = [
   },
 ];
 
-function page() {
+function Coupon() {
+  const [isLoading, setIsloading] = useState<boolean>(true);
+  const [search, setSearch] = useState<string>("");
   type row = {
     id: string;
     code: string;
@@ -81,6 +85,12 @@ function page() {
     endDate: string;
     activate: boolean;
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsloading(false);
+    }, 3000);
+  }, []);
 
   const columns = [
     {
@@ -155,6 +165,10 @@ function page() {
     },
   ];
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="w-full h-full p-3">
       <div className="flex items-center justify-between w-full">
@@ -164,12 +178,11 @@ function page() {
       <div className="wrapper mt-8 p-5">
         <div className="flex items-center gap-5  w-full">
           <TableTopSearchBar
-            placeholder={"Search Here..."}
-            value={""}
-            onChange={function (event: React.ChangeEvent<Element>): void {
-              throw new Error("Function not implemented.");
+            placeholder={"Search here..."}
+            value={search}
+            onChange={function (event: React.ChangeEvent<HTMLInputElement>) {
+              setSearch(event.target.value);
             }}
-            className="w-full"
           />
           <IconComponent icon={"filter"} color={""} size={""} />
           <IconComponent icon={"more"} color={""} size={""} />
@@ -202,4 +215,4 @@ function page() {
   );
 }
 
-export default page;
+export default Coupon;

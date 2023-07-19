@@ -1,8 +1,9 @@
 "use client";
 import CustomTable from "@/components/CommonComponents/CustomTable.tsx/CustomTable";
 import IconComponent from "@/components/CommonComponents/IconComponent";
+import Loader from "@/components/CommonComponents/Loader";
 import TableTopSearchBar from "@/components/CommonComponents/SearchBar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const data = [
   {
@@ -43,7 +44,15 @@ const data = [
   },
 ];
 
-function page() {
+function Customer() {
+  const [isLoading, setIsloading] = useState<boolean>(true);
+  const [search, setSearch] = useState<string>("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsloading(false);
+    }, 3000);
+  }, []);
   type row = {
     id: string;
     name: string;
@@ -109,17 +118,20 @@ function page() {
     },
   ];
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="w-full h-full p-3">
       <div className="wrapper p-[2.5rem]">
         <div className="flex items-center gap-5  w-full">
           <TableTopSearchBar
-            placeholder={"Search Here..."}
-            value={""}
-            onChange={function (event: React.ChangeEvent<Element>): void {
-              throw new Error("Function not implemented.");
+            placeholder={"Search here..."}
+            value={search}
+            onChange={function (event: React.ChangeEvent<HTMLInputElement>) {
+              setSearch(event.target.value);
             }}
-            className="w-full"
           />
           <IconComponent icon={"filter"} color={""} size={""} />
           <IconComponent icon={"more"} color={""} size={""} />
@@ -152,4 +164,4 @@ function page() {
   );
 }
 
-export default page;
+export default Customer;
