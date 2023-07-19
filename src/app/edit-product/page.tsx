@@ -58,7 +58,7 @@ function page() {
         <div className={styles.form}>
           {formFields.slice(0, 1).map((el) => {
             return (
-              <div className={styles.form_fields}>
+              <div key={el.id} className={styles.form_fields}>
                 <span>{el.name}</span>
                 <InputField secret={el.secret} />
               </div>
@@ -76,7 +76,7 @@ function page() {
           </div>
           {formFields.slice(1).map((el) => {
             return (
-              <div className={styles.form_fields}>
+              <div key={el.id} className={styles.form_fields}>
                 <span>{el.name}</span>
                 <InputField
                   height={el.name === "Description" ? "170px" : "50px"}

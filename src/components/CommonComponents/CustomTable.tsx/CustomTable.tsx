@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import React, {
   ChangeEventHandler,
   ComponentProps,
@@ -51,38 +52,51 @@ function CustomTable({
   dataDataLabel,
 }: tableProps) {
   return (
-    <DataTable
-      title={dataDataLabel}
-      columns={columns}
-      data={data}
-      progressPending={isLoading}
-      pagination
-      paginationPerPage={perPage}
-      customStyles={{
-        headRow: {
-          style: {
-            background: "#F7F7FC !important",
-            color: "#96A5B8",
-            fontSize: "16px",
-            fontStyle: "normal",
-            fontWeight: 700,
-            lineHeight: "19.2px",
-            borderBottom: "none !important",
+    <div>
+      <DataTable
+        noHeader
+        noDataComponent={
+          <div className="no_data_component" style={{ height: "30px" }}>
+            No data found
+          </div>
+        }
+        paginationPerPage={perPage}
+        pagination={true}
+        paginationServer={true}
+        paginationComponent={() => <></>}
+        pointerOnHover
+        highlightOnHover={false}
+        data={data}
+        columns={columns}
+        className="intel-dataTable"
+        progressPending={isLoading}
+        progressComponent={<CircularProgress />}
+        customStyles={{
+          headRow: {
+            style: {
+              background: "#F7F7FC !important",
+              color: "#96A5B8",
+              fontSize: "16px",
+              fontStyle: "normal",
+              fontWeight: 700,
+              lineHeight: "19.2px",
+              borderBottom: "none !important",
+            },
           },
-        },
-        rows: {
-          style: {
-            borderBottom: "1px solid #F7F7FC !important",
-            height: "112px !important",
+          rows: {
+            style: {
+              borderBottom: "1px solid #F7F7FC !important",
+              height: "112px !important",
+            },
           },
-        },
-        cells: {
-          style: {
-            color: "#11142D",
+          cells: {
+            style: {
+              color: "#11142D",
+            },
           },
-        },
-      }}
-    />
+        }}
+      />
+    </div>
   );
 }
 
